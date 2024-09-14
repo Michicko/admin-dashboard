@@ -391,7 +391,6 @@ button{
     color: var(--gray-500);
     font-weight: 400;
     text-transform: capitalize;
-    margin-top: -.6rem;
 }
 
 .announcement, .trending-card{
