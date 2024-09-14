@@ -47,7 +47,7 @@ body{
     height: 100vh;
     width: 100%;
     display: grid;
-    grid-template-columns: 1fr 4fr;
+    grid-template-columns: 1fr 5fr;
     grid-template-rows: repeat(5, 1fr);
     background: var(--gray-100); 
     overflow: hidden;
@@ -57,11 +57,46 @@ body{
     background: var(--blue);
     grid-column: 1 / 2;
     grid-row: 1 / 6;
+    padding: var(--base-gap);
+
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--lg-gap) * 2);
+}
+
+.sidebar ul{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--md-gap);
+    padding-left: calc(var(--sm-gap) / 2);
+}
+
+.sidebar ul > li{
+    display: flex;
+    align-items: center;
+}
+
+.sidebar ul > li > span:last-child{
+    font-size: var(--base-text);
+    font-weight: 500;
+    color: white;
+}
+
+.logo{
+    display: flex;
+    align-items: center;
+}
+
+.logo p{
+    font-size: var(--lg-text);
+    font-weight: 600;
+    color: white;
 }
 
 .header{
     background: white;
-    grid-column: 2 / 5;
+    grid-column: 2 / 6;
     grid-row: 1 / 2;
     box-shadow: var(--shadow-1);
     display: grid;
@@ -110,7 +145,7 @@ body{
 }
 
 .main{
-    grid-column: 2 / 5;
+    grid-column: 2 / 6;
     grid-row: 2 / 7;
     width: 100%;
     padding: calc(var(--lg-gap) * 1.5) var(--lg-gap);
@@ -124,6 +159,7 @@ body{
     width: 0;  /* Remove scrollbar space */
     background: transparent;  /*  make scrollbar transparent */
 }
+
 /* make scrollbar position indicator transparent*/
 .main::-webkit-scrollbar-thumb {
     background: transparent;
@@ -183,9 +219,6 @@ body{
     object-fit: contain;
 }
 
-
-
-
 .avatar ~ .name, .avatar ~ .greeting .name{
     font-size: var(--md-text);
     font-weight: 500;
@@ -210,6 +243,14 @@ body{
     font-size: var(--sm-icon);
     margin-right: var(--sm-gap);
     color: var(--dark);
+}
+
+.mdi.big{
+    font-size: calc(var(--sm-icon) * 2);
+}
+
+.mdi.light{
+    color: white;
 }
 
 .search{
