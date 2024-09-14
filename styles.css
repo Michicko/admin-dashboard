@@ -6,6 +6,7 @@
     --gray-100: #e2e9f1;
     --gray-200: #e0f2fe;
     --gray-400:#a3a3a3;
+    --gray-500: #656363;
     --orange-100: #facc15;
     --orange-200: #f0b429;
     --pink: #fda4af;
@@ -15,8 +16,8 @@
     --base-gap: 1.5rem;
     --md-gap: 1.8rem;
     --lg-gap: 2rem;
-    --sm-avatar-size: 2.5rem;
-    --big-avatar-size: 5rem;
+    --sm-avatar-size: 4.5rem;
+    --big-avatar-size: 8rem;
     --sm-text: 1.2rem;
     --base-text: 1.5rem;
     --md-text: 1.8rem;
@@ -119,6 +120,15 @@ body{
     overflow-y: scroll;
 }
 
+.main::-webkit-scrollbar {
+    width: 0;  /* Remove scrollbar space */
+    background: transparent;  /* Optional: just make scrollbar invisible */
+}
+/* Optional: show position indicator in red */
+.main::-webkit-scrollbar-thumb {
+    background: transparent;
+}
+
 .main .projects{
      grid-column: 1 / 6;   
 }
@@ -131,20 +141,50 @@ body{
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    padding: var(--sm-gap);
     border-radius: 50%;
     background: var(--orange-100);
-}
-
-.avatar img{
     width: var(--big-avatar-size);
     height: var(--big-avatar-size);
+    padding: calc(var(--sm-gap) / 2);
 }
 
-.avatar.sm img{
+.avatar.sm{
     width: var(--sm-avatar-size);
     height: var(--sm-avatar-size);
 }
+
+.avatar.gray-shade{
+    background: var(--gray-200);
+}
+
+.avatar.yellow-shade{
+    background: var(--orange-100);
+}
+
+.avatar.pink-shade{
+    background: var(--pink);
+}
+
+.avatar.dark-gray-shade{
+    background: var(--gray-500);
+}
+
+.avatar img{
+    
+}
+
+.avatar.sm img{
+    
+}
+
+.avatar img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+
+
 
 .avatar ~ .name, .avatar ~ .greeting .name{
     font-size: var(--md-text);
@@ -202,12 +242,19 @@ button{
     gap: var(--lg-gap);
 }
 
+.main h2{
+    font-size: var(--lg-text);
+    font-weight: 500;
+    color: black;
+    margin-bottom: var(--base-gap);
+}
+
 .project{
     padding: calc(var(--lg-gap) * 1.5) var(--lg-gap) ;
     padding-bottom: var(--base-gap);
     background: white;
     border-radius: calc(var(--sm-radius) / 2);
-    border-left: 5px solid var(--orange-200);
+    border-left: 6px solid var(--orange-200);
     grid-auto-rows: auto;
     display: flex;
     flex-direction: column;
@@ -236,5 +283,76 @@ button{
 .project p{
     font-size: var(--base-text);
     font-weight: 400;
-    color: var(--dark);
+    color: var(--gray-500);
+}
+
+.announcements, .trending{
+    background: white;
+    padding:var(--sm-gap) calc(var(--lg-gap) * 1.5);
+    border-radius: var(--sm-radius);
+    margin-bottom: calc(var(--lg-gap) * 2);
+}
+
+
+
+.announcements>*:not(:last-child){
+    border-bottom: 1px solid var(--gray-400);
+}
+
+.announcement h5{
+    font-size: var(--base-text);
+    font-weight: 500;
+    color: black;
+    margin-bottom: calc(var(--sm-gap) / 2);
+    text-transform: capitalize;
+}
+
+.announcement p {
+    font-size: var(--sm-text);
+    font-weight: 400;
+    color: var(--gray-500);
+}
+
+.trending{
+    display: grid;
+}
+
+.trending-card{
+    display: grid;
+    grid-template-columns: 4.5rem auto;
+    grid-template-areas: 
+    'avatar username'
+    'avatar title';
+    align-items: center;
+    column-gap: var(--base-gap);
+}
+
+.trending-card >*:nth-child(1){
+    grid-area: avatar;
+}
+
+.trending-card >*:nth-child(2){
+    grid-area: username;
+}
+
+.trending-card >*:nth-child(3){
+    grid-area: title;
+}
+
+.trending-card h5{
+    font-size: var(--sm-text);
+    font-weight: 400;
+    color: black;
+}
+
+.trending-card p{
+    font-size: var(--sm-text);
+    color: var(--gray-500);
+    font-weight: 400;
+    text-transform: capitalize;
+    margin-top: -.6rem;
+}
+
+.announcement, .trending-card{
+    padding: var(--base-gap) 0;
 }
