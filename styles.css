@@ -122,9 +122,9 @@ body{
 
 .main::-webkit-scrollbar {
     width: 0;  /* Remove scrollbar space */
-    background: transparent;  /* Optional: just make scrollbar invisible */
+    background: transparent;  /*  make scrollbar transparent */
 }
-/* Optional: show position indicator in red */
+/* make scrollbar position indicator transparent*/
 .main::-webkit-scrollbar-thumb {
     background: transparent;
 }
